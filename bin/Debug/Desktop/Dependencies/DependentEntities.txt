@@ -1,0 +1,74 @@
+ShortCallService is dependent due to the following: 
+* IUtilityService
+* ILookupService
+ProductionTypeService is dependent due to the following: 
+* IOnlineSchedulerDataAccess
+* IRecallsService
+* IRecallScheduleService
+SchedulerDbAccess is dependent due to the following: 
+* ITreatmentProcedureService
+* IUtilityService
+* IPatientMedicalAlertDbAccess
+UtilityService is dependent due to the following: 
+* ICloseOutService
+AppointmentService is dependent due to the following: 
+* IPatientService
+* IUtilityService
+* ITreatmentSchedulerService
+* ITreatmentProcedureService
+* IBus
+* IAccountConfigService
+* ICareNoteService
+CustomSettingService is dependent due to the following: 
+* IAccountConfigService
+AppointmentStatusController is dependent due to the following: 
+* IHubCommunicationClient
+CustomFilterController is dependent due to the following: 
+* IHubCommunicationClient
+ProductionTypeController is dependent due to the following: 
+* IHubCommunicationClient
+SchedulerViewController is dependent due to the following: 
+* IHubCommunicationClient
+RecurringBlockSlotService is dependent due to the following: 
+* IBlobStorage
+* IBlobStorageConfiguration
+ProductionCalenderController is dependent due to the following: 
+* IHubCommunicationClient
+SchedulerPrintService is dependent due to the following: 
+* ILookupService
+* IUtilityService
+* IClaimFacade
+RoutingSlipPrintService is dependent due to the following: 
+* IUtilityService
+* IPatientMedicalAlertService
+ConferenceService is dependent due to the following: 
+* IUserService
+* IPatientDbAccess
+ConferenceController is dependent due to the following: 
+* IHubCommunicationClient
+OnlineAppointmentsController is dependent due to the following: 
+* IOnlineSchedulerService
+AppointmentNotesHistoryDbAccess is dependent due to the following: 
+* ITableStorage
+AppointmentNotesService is dependent due to the following: 
+* INoteService
+AppointmentsController is dependent due to the following: 
+* IHubCommunicationClient
+AppointmentsGridController is dependent due to the following: 
+* IPatientGroupService
+OnlineAppointmentsSettingsController is dependent due to the following: 
+* IOnlineSchedulerService
+CustomSettingController is dependent due to the following: 
+* IHubCommunicationClient
+HolidayController is dependent due to the following: 
+* IHubCommunicationClient
+WorkingHoursController is dependent due to the following: 
+* IHubCommunicationClient
+SchedulerPrintBuilder is dependent due to the following: 
+* Document
+SchedulerPrintDataManager is dependent due to the following: 
+* IClaimFacade
+SchedulerPrintPageEvents is dependent due to the following: 
+* IUtilityService
+RoutingSlipPageEvents is dependent due to the following: 
+* IUtilityService
