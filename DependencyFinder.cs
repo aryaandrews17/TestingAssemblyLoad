@@ -13,7 +13,7 @@ namespace TestingAssemblyLoad
         public int numberOfElements;
         public void GetServicesInDepth(string typeName, List<string> NameSpaces)
         {
-            Type type = Utilities.GetType(typeName,NameSpaces);
+            Type type = Utilities.GetType(typeName, NameSpaces);
             if (type == null)
             {
                 return;

@@ -5,7 +5,7 @@ namespace TestingAssemblyLoad
     public class WriterHelper
     {
         readonly WriteManager writeManager = new WriteManager();
-        public void WriteParserDependentEntities(List<DependentEntity> dependentEntities,string filePath)
+        public void WriteParserDependentEntities(List<DependentEntity> dependentEntities, string filePath)
         {
             foreach (DependentEntity i in dependentEntities)
             {

@@ -17,17 +17,17 @@ namespace TestingAssemblyLoad
             DllLoader dllLoader = new DllLoader();
             Manager manager = new Manager(dllLoader, helper, utilities);
             string title = "Dependency Finder Tool";
-            Console.SetCursorPosition(Console.WindowWidth / 2 - title.Length / 2, Console.WindowHeight/20);
-            Console.WriteLine( title , Console.Title);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - title.Length / 2, Console.WindowHeight / 20);
+            Console.WriteLine(title, Console.Title);
             Console.WriteLine();
-           
+
             do
             {
-                
-               
-                
+
+
+
                 Console.WriteLine("Enter the path to your local CodeBase folder (eg:   D:\\Carestack or C:\\Carestack):");
-             
+
                 path = Console.ReadLine();
                 Console.WriteLine();
                 if (utilities.DllValidation(path))
@@ -42,13 +42,13 @@ namespace TestingAssemblyLoad
             do
             {
                 Console.WriteLine("Do you want add more paths to your dll (Y/N):");
-               
+
                 input = Console.ReadLine();
                 Console.WriteLine();
                 if (input == "N" || input == "n")
                     break;
                 Console.WriteLine("Enter a path to your DLL file");
-               
+
                 string dllPath = Console.ReadLine();
                 Console.WriteLine();
                 DllPathsList.Add(dllPath);
@@ -56,7 +56,7 @@ namespace TestingAssemblyLoad
             do
             {
                 Console.WriteLine("Enter the namespaces you want to set as boundary scope for your search (It should be of the format 'Billing' or 'Clinical' (note this is case sensitive)n): ");
-                
+
                 string nameSpace = Console.ReadLine();
                 Console.WriteLine();
                 NameSpacesList.Add("." + nameSpace);

@@ -22,8 +22,8 @@ namespace TestingAssemblyLoad
             var x = _dllLoader.LoadAssemblies(dllPaths, nspace);
             Console.WriteLine("Enter the path to write your file");
             var filePath = Console.ReadLine();
-            _writerHelper.WriteParserDependentEntities(x.Item1,filePath);
-            _writerHelper.WriterParserIndependentEntities(x.Item2,filePath);
+            _writerHelper.WriteParserDependentEntities(x.Item1, filePath);
+            _writerHelper.WriterParserIndependentEntities(x.Item2, filePath);
         }
     }
 }

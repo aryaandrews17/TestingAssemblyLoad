@@ -76,9 +76,9 @@ namespace TestingAssemblyLoad
         public Type FindInterfaceFromAssembly(string typeName, List<string> NameSpaces)
         {
             var types = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                        from t in assembly.GetTypes()
-                        where t.Name == typeName
-                        select t);
+                         from t in assembly.GetTypes()
+                         where t.Name == typeName
+                         select t);
             foreach (var i in NameSpaces)
             {
                 foreach (var t in types)
@@ -95,19 +95,19 @@ namespace TestingAssemblyLoad
         public Type GetImplementingClass(Type interfaces, List<string> NameSpaces)
         {
             var implementedClasses = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                                     from t in assembly.GetTypes()
-                                     where interfaces.IsAssignableFrom(t) && t.IsClass == true
-                                     select t);
-            foreach(var i in implementedClasses)
+                                      from t in assembly.GetTypes()
+                                      where interfaces.IsAssignableFrom(t) && t.IsClass == true
+                                      select t);
+            foreach (var i in implementedClasses)
             {
-                foreach(var j in NameSpaces)
+                foreach (var j in NameSpaces)
                 {
                     if (i.Namespace.Contains(j))
                     {
                         return i;
                     }
                 }
-            }       
+            }
             return null;
         }
 
