@@ -54,31 +54,61 @@ namespace TestingAssemblyLoad
             return types;
         }
 
-        public Type GetType(string typeName)
+        public Type GetType(string typeName, List<string> NameSpaces)
         {
-            Type type = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+            var types = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                          from t in assembly.GetTypes()
                          where t.Name == typeName
-                         select t).FirstOrDefault();
-            return type;
+                         select t);
+            foreach (var i in NameSpaces)
+            {
+                foreach (var t in types)
+                {
+                    if (t.Namespace.Contains(i))
+                    {
+                        return t;
+                    }
+                }
+            }
+            return null;
         }
 
-        public Type FindInterfaceFromAssembly(string typeName)
+        public Type FindInterfaceFromAssembly(string typeName, List<string> NameSpaces)
         {
-            Type type2 = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                          from t in assembly.GetTypes()
-                          where t.Name == typeName
-                          select t).FirstOrDefault();
-            return type2;
+            var types = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                        from t in assembly.GetTypes()
+                        where t.Name == typeName
+                        select t);
+            foreach (var i in NameSpaces)
+            {
+                foreach (var t in types)
+                {
+                    if (t.Namespace.Contains(i))
+                    {
+                        return t;
+                    }
+                }
+            }
+            return null;
         }
 
-        public Type GetImplementingClass(Type interfaces)
+        public Type GetImplementingClass(Type interfaces, List<string> NameSpaces)
         {
-            var implementedClass = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+            var implementedClasses = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
                                      from t in assembly.GetTypes()
-                                     where interfaces.IsAssignableFrom(t) && t.IsClass == true && t.Namespace.Contains("")
+                                     where interfaces.IsAssignableFrom(t) && t.IsClass == true
                                      select t);
-            return implementedClass;
+            foreach(var i in implementedClasses)
+            {
+                foreach(var j in NameSpaces)
+                {
+                    if (i.Namespace.Contains(j))
+                    {
+                        return i;
+                    }
+                }
+            }       
+            return null;
         }
 
         public bool ScopeChecker(ParameterInfo parameter, List<string> NameSpaces)

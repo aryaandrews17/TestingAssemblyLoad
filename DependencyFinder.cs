@@ -13,7 +13,7 @@ namespace TestingAssemblyLoad
         public int numberOfElements;
         public void GetServicesInDepth(string typeName, List<string> NameSpaces)
         {
-            Type type = Utilities.GetType(typeName);
+            Type type = Utilities.GetType(typeName,NameSpaces);
             if (type == null)
             {
                 return;
@@ -37,10 +37,10 @@ namespace TestingAssemblyLoad
                     foreach (ParameterInfo parameter in Params)
                     {
                         var ScopeChecker = Utilities.ScopeChecker(parameter, NameSpaces);
-                        if (parameter.ParameterType.IsInterface == true && parameter.ParameterType.Namespace.Contains("Clinical")/*ScopeChecker == true*/)
+                        if (parameter.ParameterType.IsInterface == true && ScopeChecker == true)
                         {
-                            Type typeInterface = Utilities.FindInterfaceFromAssembly(parameter.ParameterType.Name);
-                            var implementedClass = Utilities.GetImplementingClass(typeInterface);
+                            Type typeInterface = Utilities.FindInterfaceFromAssembly(parameter.ParameterType.Name, NameSpaces);
+                            var implementedClass = Utilities.GetImplementingClass(typeInterface, NameSpaces);
 
                             if (implementedClass != null)
                             {
@@ -48,7 +48,7 @@ namespace TestingAssemblyLoad
                                 GetServicesInDepth(implementedClass.Name.ToString(), NameSpaces);
                             }
                         }
-                        else if (parameter.ParameterType.IsClass == true &&  parameter.ParameterType.Namespace.Contains("Clinical")/*ScopeChecker == true*/)
+                        else if (parameter.ParameterType.IsClass == true && ScopeChecker == true)
                         {
                             count++;
                             GetServicesInDepth(parameter.ParameterType.Name, NameSpaces);
@@ -59,6 +59,8 @@ namespace TestingAssemblyLoad
                         }
                         else
                         {
+                            if(type.Name == "AppointmentService")
+                                Console.WriteLine("Here");
                             Utilities.DependencyStorer(type, parameter);
 
                         }
