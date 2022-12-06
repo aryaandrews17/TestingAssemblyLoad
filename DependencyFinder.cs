@@ -59,8 +59,6 @@ namespace TestingAssemblyLoad
                         }
                         else
                         {
-                            if(type.Name == "AppointmentService")
-                                Console.WriteLine("Here");
                             Utilities.DependencyStorer(type, parameter);
 
                         }
